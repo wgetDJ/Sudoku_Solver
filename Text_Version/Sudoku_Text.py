@@ -1,5 +1,6 @@
 # Text based Sudoku solver using Backtracking Algorythm
 
+# Hard
 board = [
 	[0,3,8,0,0,0,0,0,0],
     [0,0,0,4,0,0,9,0,0],
@@ -11,6 +12,20 @@ board = [
     [0,0,9,0,0,4,0,0,0],
     [0,0,0,0,0,0,6,3,0]
 ]
+
+# Easy
+board = [
+	[7,0,0,4,0,1,0,0,0],
+    [0,2,3,5,0,0,1,0,0],
+    [6,0,0,7,8,0,0,0,0],
+    [4,5,0,0,1,0,0,0,6],
+    [2,7,8,0,9,0,1,5,3],
+    [1,0,0,0,5,0,0,8,4],
+    [0,0,0,0,7,6,0,0,9],
+    [0,4,0,0,0,5,8,6,0],
+    [0,0,0,9,0,8,0,0,2]
+]
+tries = 0
 
 
 def print_board(board):
@@ -41,6 +56,7 @@ def solve(board):
 	"""
 	print("----------")
 	print(board)
+	times()
 
 	find = ()
 	find = find_empty_square(board)
@@ -59,6 +75,13 @@ def solve(board):
 				board[row][col] = 0
 
 	return False
+
+
+def times():
+	global tries
+	tries += 1
+	return tries
+
 
 
 def find_empty_square(board):
@@ -112,3 +135,4 @@ print_board(board)
 solve(board)
 print("----Solved----")
 print_board(board)
+print("number of tries to solve: " + str(times()))
